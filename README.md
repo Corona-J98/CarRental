@@ -20,17 +20,7 @@ step-by-step description of how to get the development environment set and runni
 # Testing Application
 write tests for your application. Then provide code examples and how to run them. Explain testing methods and reasoning.
 
-# Development Process
-## Gathering Data
-The target audience for this software is geared towards car rental businesses. The goal of businesses that provide car rentals is to develop franchises. Which expands to catering to a larger range of clients. To succed in the car rental industry you must know the importance of having micro-niche specialists. Likewise, using a micro-niche software to handle the logs of renting automobiles.
-## Developing an Overall Model
-detailed domain models, which will then be merged into one overall model that acts as a rough outline of the system
-There are (4) main 'Users' in this system:
-- **Receptionist**: Mainly responsible for adding and modifying vehicles and workers. Receptionists can also reserve vehicles
-- **Member**: All members can search the catalog, as well as reserve, pick-up, and return a vehicle
-- **System**: Mainly responsible for sending notifications about overdue vehicles, canceled reservation, etc.
-- **Worker**: Mainly responsible for taking care of a returned vehicle and updating the vehicle log
-## Developing Features List
+# System Requirements
 1. The system will support the renting of different automobiles like cars, trucks, SUVs, vans, and motorcycles.
 
 2. Each vehicle should be added with a unique barcode and other details, including a parking stall number which helps to locate the vehicle.
@@ -54,56 +44,90 @@ There are (4) main 'Users' in this system:
 11. Members can rent additional equipment, like navigation, child seat, ski rack, etc.
 
 12. Members can add additional services to their reservation, such as roadside assistance, additional driver, wifi, etc.
+
+# Development Process
+## Gathering Data
+The target audience for this software is geared towards car rental businesses. The goal of businesses that provide car rentals is to develop franchises. Which expands to catering to a larger range of clients. To succed in the car rental industry you must know the importance of having micro-niche specialists. Likewise, using a micro-niche software to handle the logs of renting automobiles.
+## Developing an Overall Model
+detailed domain models, which will then be merged into one overall model that acts as a rough outline of the system
+There are (4) main 'Users' in this system:
+- **Receptionist**: Mainly responsible for adding and modifying vehicles and workers. Receptionists can also reserve vehicles
+- **Member**: All members can search the catalog, as well as reserve, pick-up, and return a vehicle
+- **System**: Mainly responsible for sending notifications about overdue vehicles, canceled reservation, etc.
+- **Worker**: Mainly responsible for taking care of a returned vehicle and updating the vehicle log
+## Developing Features List
+- Request Reservation
+    - Add Equipment
+    - Add service
+    - Add rental insurance
+    - Add additional driver
+- Create Reservation
+- Remove Reservation
+- Update Reservation
+- Add Vehicle
+    - Add Barcode
+- Modify Vehicle
+    - Modify Barcode
+- Remove Vehicle
+    - Remove Barcode
+- Pickup Vehicle
+- Return Vehicle
+- Update Balance
+- Update Car Log
+- Search Vehicle Inventory
+- Create New Account
+- Update/ Cancel Account
+- Login/ Logout
+- Send Overdue Notification
+- Send Reservation Notification
+- Send Reservation Canceled Notification
 ## Planning Each Feature
 analyze complexity of each feature and plan tasks that are related to be accomplished
-1. Add/Remove/Edit vehicle: To add, remove or modify a vehicle.
-
-2. Search Vehcile: To search for vehicles by type and availability.
-
-3. Update car log: To add or update a car log entry, such as refueling, cleaning, damage, etc.
-
-4. Return a vehicle: To return a vehicle which was checked-out to a member.
-
-5. Search catalog: To search for vehicles by type and availability.
-
-6. Send notifications: Alert to remind when car must be returned.
-
-7. Search vehicle: To search through car log.
-
-8. Register new account/Cancel membership: To add a new member or cancel an existing membership.
-
-9. Database: Inventory of all automobiles along recording a log and updating changes.
-
-10. Reserve vehicle: To reserve a vehicle. Ending with optional rental insurance to balance. 
-
-11. Add equipment: To add an equipment to a reservation like navigation, child seat, etc.
-
-12. Add services: To add services to a reservation such as roadside assistance, additional driver, wifi, etc.
+1. Reservation
+    - This class will be responsible for managing reservations for a vehicle.
+2. Vehicle
+    - The basic building block of the system. Every vehicle will have a barcode, license plate number, passenger capacity, model, make, mileage, etc. Vehicles can be of multiple types, like car, truck, SUV, etc.
+3. Account
+    - Mainly, we will have two types of accounts in the system, one will be a general member and the other will be a receptionist. Another account can be of the worker taking care of the returned vehicle.
+4. Inventory System
+    - The main part of the organization for which this software has been designed.
+5. Equipment
+    - Stores details about the various types of equipment that members can add to their reservation.
+6. Service
+    - Stores details about the various types of service that members can add to their reservation, such as additional drivers, roadside assistance, etc.
+7. Rental Insurance
+    - Stores details about the various rental insurances that members can add to their reservation.
+8. Bill
+    - Contains different bill-items for every charge for the reservation.
+9. Notification
+    - Will take care of sending notifications to members.
+10. Vehicle Log
+    - To keep track of all the events related to a vehicle.
+11. Vehicle Locator
+    - The car rental system will have multiple locations, each location will have attributes like ‘Name’ to distinguish it from any other locations and ‘Address’ which defines the address of the rental location.
 ## Designing Each Feature
 defining the feature priorities. which includes technical design and framework
-1. Add/Remove/Edit vehicle:
-    - Vehicle Inventory
-        - ID, type, description, date
-
-2. Search Vehicle:
-    - Vehicle
-        - ID, stock number, seat capacity, barcode, add-ons, status, model, make, year, mileage
-
-3. Update car log:
-    - Vehicle Reservation
-        - date, status, due date, return date, pickup location, return location, fetch details
-
-4. Return a vehicle:
-    - Vehicle
-        - return vehicle
-
-5. Search catalog:
-    - Member
-        - get reservations
-
-6. Send notifications:
-    - Notification
-        - id, date, content, send
-
+1. Reservation
+    - 
+2. Vehicle
+    - 
+3. Account
+    - 
+4. Inventory
+    - 
+5. Equipment
+    - 
+6. Service
+    - 
+7. Rental Insurance
+    - 
+8. Bill
+    - 
+9. Notification
+    - 
+10. Car Log
+    - 
+11. Car Locator
+    - 
 ## Building Each Feature
 feature prototype is created. The unit is tested, inspected and then approved. finally, completed feature moved to the main build
